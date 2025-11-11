@@ -227,6 +227,18 @@ public abstract class BasePlugin extends JavaPlugin implements Listener {
     }
 
     /**
+     * Creates a DefaultsFileYAMLProcessor using this plugin's classloader.
+     * This ensures resource loading works correctly with shadow JARs.
+     *
+     * @param file The filename in the defaults/ folder
+     * @param writeDefaults Whether to write defaults
+     * @return A DefaultsFileYAMLProcessor instance configured with this plugin's classloader
+     */
+    public DefaultsFileYAMLProcessor createDefaultsFileYAMLProcessor(String file, boolean writeDefaults) {
+        return new DefaultsFileYAMLProcessor(this, file, writeDefaults);
+    }
+
+    /**
      * Checks permissions.
      *
      * @param sender The sender to check
