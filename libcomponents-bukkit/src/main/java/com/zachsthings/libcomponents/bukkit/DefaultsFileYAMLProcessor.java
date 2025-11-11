@@ -20,6 +20,7 @@ package com.zachsthings.libcomponents.bukkit;
 import com.sk89q.util.yaml.YAMLProcessor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.io.InputStream;
 
 /**
@@ -38,7 +39,7 @@ public class DefaultsFileYAMLProcessor extends YAMLProcessor {
      * @param writeDefaults Whether to write defaults
      */
     public DefaultsFileYAMLProcessor(JavaPlugin plugin, String file, boolean writeDefaults) {
-        super(null, writeDefaults);
+        super((File) null, writeDefaults);
         this.file = file;
         this.classLoader = plugin.getClass().getClassLoader();
     }
@@ -51,7 +52,7 @@ public class DefaultsFileYAMLProcessor extends YAMLProcessor {
      * @param writeDefaults Whether to write defaults
      */
     public DefaultsFileYAMLProcessor(ClassLoader classLoader, String file, boolean writeDefaults) {
-        super(null, writeDefaults);
+        super((File) null, writeDefaults);
         this.file = file;
         this.classLoader = classLoader;
     }
@@ -66,7 +67,7 @@ public class DefaultsFileYAMLProcessor extends YAMLProcessor {
      */
     @Deprecated
     public DefaultsFileYAMLProcessor(String file, boolean writeDefaults) {
-        super(null, writeDefaults);
+        super((File) null, writeDefaults);
         this.file = file;
         // Try to use context classloader first, fall back to this class's classloader
         ClassLoader contextLoader = Thread.currentThread().getContextClassLoader();

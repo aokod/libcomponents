@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://releases.jfrog.io/artifactory/oss-snapshots/'
+        }
+    }
+}
+
 plugins {
-    id "com.jfrog.artifactory" version "4.21.0"
+    id "com.jfrog.artifactory" version "4.29.0"
 }
 
 subprojects {
@@ -8,7 +18,7 @@ subprojects {
 
     java {
         toolchain {
-            languageVersion = JavaLanguageVersion.of(16)
+            languageVersion = JavaLanguageVersion.of(21)
         }
     }
 
